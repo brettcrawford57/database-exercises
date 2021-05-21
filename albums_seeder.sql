@@ -1,5 +1,7 @@
 USE codeup_test_db;
 
+TRUNCATE albums;
+
 INSERT INTO albums (artist, album_name, release_date, genre, sales)
 VALUES ('Michael Jackson', 'Thriller', 1982, 'Pop, Post-Disco, Funk, Rock', 47.3),
        ('AC/DC', 'Back in Black', 1980, 'Hard rock', 29.4),
@@ -36,3 +38,10 @@ VALUES ('Michael Jackson', 'Thriller', 1982, 'Pop, Post-Disco, Funk, Rock', 47.3
        ('Elton John', 'Goodbye Yellow Brick Road', 1973, 'Rock, Pop Rock, Glam Rock', 8.5);
 
 
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS full_name, d.dept_name
+FROM employees
+         JOIN dept_emp
+              ON dept_emp.emp_no = employees.emp_no
+         JOIN departments
+              ON departments.dept_no = dept_emp.dept_no
+WHERE departments.to_date = '9999-01-01' AND eemployees.emp_no = 10001;

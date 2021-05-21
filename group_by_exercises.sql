@@ -39,4 +39,3 @@ WHERE first_name = 'Vidya'
 OR first_name = 'Maya'
 OR first_name = 'Irena'
 GROUP BY gender;
-
