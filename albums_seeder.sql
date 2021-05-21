@@ -36,12 +36,3 @@ VALUES ('Michael Jackson', 'Thriller', 1982, 'Pop, Post-Disco, Funk, Rock', 47.3
        ('Santana', 'Supernatural', 1999, 'Latin Rock', 20.5),
        ('Guns N'' Roses', 'Appetite for Destruction', 1987, 'Hard Rock', 21.9),
        ('Elton John', 'Goodbye Yellow Brick Road', 1973, 'Rock, Pop Rock, Glam Rock', 8.5);
-
-
-SELECT CONCAT(e.first_name, ' ', e.last_name) AS full_name, d.dept_name
-FROM employees
-         JOIN dept_emp
-              ON dept_emp.emp_no = employees.emp_no
-         JOIN departments
-              ON departments.dept_no = dept_emp.dept_no
-WHERE departments.to_date = '9999-01-01' AND eemployees.emp_no = 10001;
