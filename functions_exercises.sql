@@ -1,40 +1,33 @@
 USE employees;
 
-SELECT CONCAT(first_name, ' ', last_name)
-FROM employees;
-WHERE last_name LIKE '%E%'
-ORDER BY emp_no DESC;
-
-
-
-
-
-SELECT *
-FROM employees
-WHERE first_name IN ('Irena', 'Vidya', 'Maya')
-ORDER BY first_name;
-
-SELECT *
-FROM employees
-WHERE first_name IN ('Irena', 'Vidya', 'Maya')
-ORDER BY first_name, last_name;
-
-SELECT *
-FROM employees
-WHERE first_name IN ('Irena', 'Vidya', 'Maya')
-ORDER BY last_name, first_name;
-
-SELECT *
+SELECT CONCAT(first_name, ' ', last_name) AS 'Full Name'
 FROM employees
 WHERE last_name LIKE 'E%'
-ORDER BY emp_no;
+AND last_name LIKE '%E'
+ORDER BY last_name;
 
 SELECT *
 FROM employees
-WHERE first_name IN ('Irena', 'Vidya', 'Maya')
-ORDER BY last_name DESC, first_name DESC;
+WHERE month(birth_date) = 12
+AND day(birth_date) = 25;
 
 SELECT *
 FROM employees
-WHERE last_name LIKE '%E%'
-ORDER BY emp_no DESC;
+WHERE year(hire_date) BETWEEN 1990 AND 1999
+AND day(birth_date) = 25
+AND month(birth_date) = 12;
+
+SELECT *
+FROM employees
+WHERE year(hire_date) BETWEEN 1990 AND 1999
+  AND day(birth_date) = 25
+  AND month(birth_date) = 12
+ORDER BY birth_date ASC, hire_date DESC
+LIMIT 1;
+
+SELECT CONCAT(first_name, ' ', last_name) AS 'Employee Name', DATEDIFF(NOW(), hire_date) AS 'Days Worked'
+FROM employees
+WHERE year(hire_date) BETWEEN 1990 AND 1999
+  AND day(birth_date) = 25
+  AND month(birth_date) = 12
+LIMIT 50;
